@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카카오페이 송금</title>
+
+<style>
+body {
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+    background:#f5f5f5;
+}
+
+.container {
+    max-width:420px;
+    margin:auto;
+    background:white;
+    min-height:100vh;
+}
+
+.header {
+    background:#fee500;
+    padding:15px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.content {
+    padding:20px;
+}
+
+.input-box {
+    margin-bottom:15px;
+}
+
+input {
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button {
+    width:100%;
+    padding:18px;
+    background:#fee500;
+    border:none;
+    font-size:18px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.result {
+    text-align:center;
+    padding-top:80px;
+}
+
+.money {
+    font-size:28px;
+    font-weight:bold;
+    margin:20px 0;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+카카오페이 송금
+</div>
+
+<div class="content" id="send">
+
+<div class="input-box">
+<input type="text" id="name" placeholder="받는 사람 이름">
+</div>
+
+<div class="input-box">
+<input type="number" id="money" placeholder="송금 금액">
+</div>
+
+<button onclick="sendMoney()">송금하기</button>
+
+</div>
+
+<div class="content result" id="complete" style="display:none">
+
+<h2>송금 완료</h2>
+
+<p id="resultName"></p>
+
+<div class="money" id="resultMoney"></div>
+
+<p>만우절 장난입니다 😄</p>
+
+</div>
+
+</div>
+
+<script>
+function sendMoney() {
+
+    let name = document.getElementById("name").value;
+    let money = document.getElementById("money").value;
+
+    if(name == "" || money == "") {
+        alert("이름과 금액을 입력하세요");
+        return;
+    }
+
+    document.getElementById("send").style.display = "none";
+    document.getElementById("complete").style.display = "block";
+
+    document.getElementById("resultName").innerText = name + "님에게";
+    document.getElementById("resultMoney").innerText = money + "원 송금 완료";
+
+}
+</script>
+
+</body>
+</html>
