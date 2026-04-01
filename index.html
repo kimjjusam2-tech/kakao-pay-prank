@@ -3,123 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>카카오페이 송금</title>
+
+<title>송금 보내요</title>
+
+<!-- 카카오톡 미리보기 카드 -->
+<meta property="og:title" content="송금 보내요">
+<meta property="og:description" content="1,000,000원을 보냈어요.">
+<meta property="og:image" content="https://i.imgur.com/3ZQ3Z9p.png">
+<meta property="og:type" content="website">
 
 <style>
+
 body {
     margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
-    background:#f5f5f5;
+    font-family: -apple-system, Apple SD Gothic Neo;
+    background:#f2f2f2;
 }
 
-.container {
+.card {
     max-width:420px;
     margin:auto;
     background:white;
     min-height:100vh;
 }
 
-.header {
+.top {
     background:#fee500;
-    padding:15px;
+    padding:20px;
+    font-size:28px;
     font-weight:bold;
-    text-align:center;
+}
+
+.img {
+    background:#fee500;
+    height:200px;
 }
 
 .content {
     padding:20px;
 }
 
-.input-box {
-    margin-bottom:15px;
-}
-
-input {
-    width:100%;
-    padding:15px;
-    font-size:16px;
-    border:1px solid #ddd;
-    border-radius:10px;
-}
-
-button {
-    width:100%;
-    padding:18px;
-    background:#fee500;
-    border:none;
-    font-size:18px;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-.result {
-    text-align:center;
-    padding-top:80px;
-}
-
 .money {
-    font-size:28px;
+    font-size:26px;
     font-weight:bold;
-    margin:20px 0;
+    margin-bottom:10px;
 }
-</style>
 
+.desc {
+    color:#888;
+    margin-bottom:20px;
+}
+
+.btn {
+    background:#ddd;
+    padding:18px;
+    text-align:center;
+    border-radius:10px;
+    font-size:18px;
+}
+
+.footer {
+    margin-top:20px;
+    color:#888;
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<div class="card">
 
-<div class="header">
-카카오페이 송금
+<div class="top">송금 보내요</div>
+
+<div class="img"></div>
+
+<div class="content">
+
+<div class="money">
+1,000,000원을 보냈어요.
 </div>
 
-<div class="content" id="send">
-
-<div class="input-box">
-<input type="text" id="name" placeholder="받는 사람 이름">
+<div class="desc">
+송금 받기 전까지 보낸 분은 취소할 수 있어요.
 </div>
 
-<div class="input-box">
-<input type="number" id="money" placeholder="송금 금액">
+<div class="btn">
+송금 받기
 </div>
 
-<button onclick="sendMoney()">송금하기</button>
-
-</div>
-
-<div class="content result" id="complete" style="display:none">
-
-<h2>송금 완료</h2>
-
-<p id="resultName"></p>
-
-<div class="money" id="resultMoney"></div>
-
-<p>만우절 장난입니다 😄</p>
-
+<div class="footer">
+카카오페이
 </div>
 
 </div>
 
-<script>
-function sendMoney() {
-
-    let name = document.getElementById("name").value;
-    let money = document.getElementById("money").value;
-
-    if(name == "" || money == "") {
-        alert("이름과 금액을 입력하세요");
-        return;
-    }
-
-    document.getElementById("send").style.display = "none";
-    document.getElementById("complete").style.display = "block";
-
-    document.getElementById("resultName").innerText = name + "님에게";
-    document.getElementById("resultMoney").innerText = money + "원 송금 완료";
-
-}
-</script>
+</div>
 
 </body>
 </html>
